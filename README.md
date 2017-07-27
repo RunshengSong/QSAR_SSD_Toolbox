@@ -46,7 +46,7 @@ prediction = this_q.predict(['CCC'])
 ## Available QSAR Models:
 * Lepomis_Macrochirus:
 R^2 on testing chemicals: 0.51 </br>
-![image1]('https://github.com/RunshengSong/QSAR_SSD_Toolbox/blob/master/QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/0714a_results.png')
+![](QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/0714a_results.png?raw=true)
 </br>
 
 * Oncorhynchus_Mykiss:
