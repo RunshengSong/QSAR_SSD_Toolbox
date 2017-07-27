@@ -1,0 +1,12 @@
+SLogP	
+ATS3m	
+ATSC1d	
+ATSC8d	
+TSC7v	
+AATSC5v	
+Xc-3dv	
+Xpc-4dv	
+Xp-3dv	
+Xp-6dv	
+ZMIC5	
+piPC5

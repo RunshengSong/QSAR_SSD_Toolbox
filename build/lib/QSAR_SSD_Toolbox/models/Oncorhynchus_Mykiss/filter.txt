@@ -1,0 +1,8 @@
+ETA_eta
+SLogP
+ATS0m
+AATS3i
+ATSC2p 
+MWC05
+Xc-3d
+SlogP_VSA4
