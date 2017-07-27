@@ -7,14 +7,14 @@ QSAR_SSD_Toolbox.egg-info/dependency_links.txt
 QSAR_SSD_Toolbox.egg-info/top_level.txt
 QSAR_SSD_Toolbox/models/__init__.py
 QSAR_SSD_Toolbox/models/__init__.pyc
-QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/0714a_results.png
-QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/filter.txt
-QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/model.h5
-QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/scaler.pkl
-QSAR_SSD_Toolbox/models/Oncorhynchus_Mykiss/0713a_results.png
-QSAR_SSD_Toolbox/models/Oncorhynchus_Mykiss/filter.txt
-QSAR_SSD_Toolbox/models/Oncorhynchus_Mykiss/model.h5
-QSAR_SSD_Toolbox/models/Oncorhynchus_Mykiss/scaler.pkl
+QSAR_SSD_Toolbox/models/Lepomis Macrochirus/0714a_results.png
+QSAR_SSD_Toolbox/models/Lepomis Macrochirus/filter.txt
+QSAR_SSD_Toolbox/models/Lepomis Macrochirus/model.h5
+QSAR_SSD_Toolbox/models/Lepomis Macrochirus/scaler.pkl
+QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/0713a_results.png
+QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/filter.txt
+QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/model.h5
+QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/scaler.pkl
 QSAR_SSD_Toolbox/src/__init__.py
 QSAR_SSD_Toolbox/src/descriptors.py
 QSAR_SSD_Toolbox/src/qsar.py

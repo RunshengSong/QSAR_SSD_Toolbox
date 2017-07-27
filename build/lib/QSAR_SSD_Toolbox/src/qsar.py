@@ -4,6 +4,8 @@ Created on Jul 26, 2017
 @author: runsheng
 '''
 import os
+import numpy as np
+import pandas as pd
 
 from keras.models import load_model
 from sklearn.externals import joblib
@@ -37,14 +39,31 @@ class qsar():
         with open(cur_path+'/../models/'+model_name+'/filter.txt') as myfile:
             content = myfile.readlines()
         return [x.strip() for x in content]
-        
 
+class run_all():
+    @staticmethod
+    def run(SMILEs):
+        cur_path = os.path.dirname(__file__)
+        all_models = [d for d in os.listdir(cur_path+'/../models') if os.path.isdir(os.path.join(cur_path+'/../models', d))]
+        species = []
+        all_p = []
+
+        for each_model in all_models:
+            species.append(each_model)
+            this_qsar = qsar(each_model)
+            this_p = this_qsar.predict(SMILEs)[0]
+            all_p.append(this_p)
+
+        df = pd.DataFrame(np.array(all_p),index=species,columns=['val'])
+        return df
+    
 if __name__ == '__main__':
     pass
-    # test
-#     model_name = "Oncorhynchus_Mykiss"
-#       
-#     q = qsar(model_name=model_name)
-#     print q.predict(['CCC', 'C[N+](C)(C)CCCl.[Cl-]','ClC(Cl)(Cl)C(Cl)(Cl)Cl','c1ccccc1','ClC(Cl)(Cl)SN1C(=O)c2ccccc2C1=O','CCSC(=O)N(CC(C)C)CC(C)C'])
-#     
+#     # test
+# #     model_name = "Oncorhynchus Mykiss"
+# #        
+# #     q = qsar(model_name=model_name)
+# #     print q.predict(['CCC', 'C[N+](C)(C)CCCl.[Cl-]','ClC(Cl)(Cl)C(Cl)(Cl)Cl','c1ccccc1','ClC(Cl)(Cl)SN1C(=O)c2ccccc2C1=O','CCSC(=O)N(CC(C)C)CC(C)C'])
+#     print run_all.run(['CCC'])
+   
     
