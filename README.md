@@ -68,10 +68,10 @@ this_ssd.generate(this_q, dist=lognorm, run_bootstrap=True, bootstrap_time=1000,
 ## Available QSAR Models:
 * Lepomis_Macrochirus:
 R^2 on testing chemicals: 0.51 </br>
-![image1](QSAR_SSD_Toolbox/models/Lepomis_Macrochirus/0714a_results.png?raw=true)
+![image1](QSAR_SSD_Toolbox/models/Lepomis Macrochirus/0714a_results.png?raw=true)
 </br>
 
 * Oncorhynchus_Mykiss:
 R^2 on testing chemicals: 0.72 </br>
-![image2](QSAR_SSD_Toolbox/models/Oncorhynchus_Mykiss/0713a_results.png?raw=true)
+![image2](QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/0713a_results.png?raw=true)
 </br>
