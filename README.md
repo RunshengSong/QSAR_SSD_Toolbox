@@ -64,14 +64,15 @@ from QSAR_SSD_Toolbox.src.ssd import ssd_generator
 this_ssd = ssd_generator()
 this_ssd.generate(this_q, dist=lognorm, run_bootstrap=True, bootstrap_time=1000, display=True) # this will return a plot with bootstrap and baseline SSD curves. For more information about bootstrap in SSD refer to this blog: https://edild.github.io/ssd/
 ```
+
 ---
 ## Available QSAR Models:
 * Lepomis_Macrochirus:
 R^2 on testing chemicals: 0.51 </br>
-![image1](QSAR_SSD_Toolbox/models/Lepomis Macrochirus/0714a_results.png?raw=true)
+![](QSAR_SSD_Toolbox/models/Lepomis&#32;Macrochirus/0714a_results.png?raw=true)
 </br>
 
 * Oncorhynchus_Mykiss:
 R^2 on testing chemicals: 0.72 </br>
-![image2](QSAR_SSD_Toolbox/models/Oncorhynchus Mykiss/0713a_results.png?raw=true)
+![](QSAR_SSD_Toolbox/models/Oncorhynchus&#32;Mykiss/0713a_results.png?raw=true)
 </br>
