@@ -60,7 +60,7 @@ class ssd_generator():
  
             # configeration
             plt.xscale('log')
-            plt.xlim([min(ssd_df['val']) - min(ssd_df['val']*0.1), max(ssd_df['val']) + max(ssd_df['val'])*0.1])
+            plt.xlim([min(ssd_df['val']) - min(ssd_df['val']*0.8), max(ssd_df['val']) + max(ssd_df['val'])*0.1])
             plt.grid()
             
             plt.show()
@@ -69,7 +69,7 @@ class ssd_generator():
             
     
     def _frac(self, df, fraction=0.5):
-        df = df.sort(['val'])
+        df = df.sort_values(['val'])
         frac = self._ppoints(df['val'], fraction)
         return df, frac
         

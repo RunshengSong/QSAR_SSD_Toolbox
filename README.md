@@ -60,6 +60,7 @@ this_q = run_all.run(SMILEs) # return a pandas dataframe: index -- species name 
 ### Plot SSD Curves
 ```python
 from QSAR_SSD_Toolbox.src.ssd import ssd_generator
+from scipy.stats import lognorm
 
 this_ssd = ssd_generator()
 this_ssd.generate(this_q, dist=lognorm, run_bootstrap=True, bootstrap_time=1000, display=True) # this will return a plot with bootstrap and baseline SSD curves. For more information about bootstrap in SSD refer to this blog: https://edild.github.io/ssd/
@@ -75,4 +76,24 @@ R^2 on testing chemicals: 0.51 </br>
 * Oncorhynchus Mykiss:
 R^2 on testing chemicals: 0.72 </br>
 ![](QSAR_SSD_Toolbox/models/Oncorhynchus&#32;Mykiss/0713a_results.png?raw=true)
+</br>
+
+* Americamysis bahia:
+R^2 on testing chemicals: 0.45 </br>
+![](QSAR_SSD_Toolbox/models/Americamysis&#32;bahia/results.png?raw=true)
+</br>
+
+* Oncorhynchus Mykiss:
+R^2 on testing chemicals: 0.72 </br>
+![](QSAR_SSD_Toolbox/models/Oncorhynchus&#32;Mykiss/0713a_results.png?raw=true)
+</br>
+
+* Oryzias latipes:
+R^2 on testing chemicals: 0.56 </br>
+![](QSAR_SSD_Toolbox/models/Oryzias&#32;latipes/results.png?raw=true)
+</br>
+
+* Pimephales promelas:
+R^2 on testing chemicals: 0.72 </br>
+![](QSAR_SSD_Toolbox/models/Pimephales&#32;promelas/results.png?raw=true)
 </br>
