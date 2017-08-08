@@ -63,7 +63,7 @@ from QSAR_SSD_Toolbox.src.ssd import ssd_generator
 from scipy.stats import lognorm
 
 this_ssd = ssd_generator()
-this_ssd.generate(this_q, dist=lognorm, run_bootstrap=True, bootstrap_time=1000, display=True) # this will return a plot with bootstrap and baseline SSD curves. For more information about bootstrap in SSD refer to this blog: https://edild.github.io/ssd/
+this_ssd.generate(this_q, dist=lognorm, run_bootstrap=True, bootstrap_time=1000, display_range=[0.8,100]) # this will return a plot with bootstrap and baseline SSD curves. For more information about bootstrap in SSD refer to this blog: https://edild.github.io/ssd/
 ```
 
 ---
@@ -84,7 +84,7 @@ R^2 on testing chemicals: 0.45 </br>
 </br>
 
 * Oncorhynchus Mykiss:
-R^2 on testing chemicals: 0.72 </br>
+R^2 on testing chemicals: 0.75 </br>
 ![](QSAR_SSD_Toolbox/models/Oncorhynchus&#32;Mykiss/0713a_results.png?raw=true)
 </br>
 
@@ -99,6 +99,6 @@ R^2 on testing chemicals: 0.72 </br>
 </br>
 
 * Daphnia magna:
-R^2 on testing chemicals: 0.72 </br>
+R^2 on testing chemicals: 0.35 </br>
 ![](QSAR_SSD_Toolbox/models/Daphnia&#32;magna/results.png?raw=true)
 </br>
