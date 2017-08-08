@@ -19,58 +19,58 @@ class ssd_generator():
         pass
     
     def generate(self, 
-                 ssd_df, 
+                 ssd_df,
+                 chem_SMILEs,
                  dist=lognorm, 
                  run_bootstrap=True,
                  bootstrap_time=1000,
-                 display=True):
+                 display_range=[0,100]):
         '''
         Input: pandas dataframe of Species_Name: LC50 Values
         Output: SSD Curves
         '''
-        ssd_df, frac = self._frac(ssd_df, fraction=0.5)
-        shape, loc, scale = dist.fit(ssd_df['val'], floc=0)
+        ssd_df, frac = self._frac(ssd_df, chem_SMILEs, fraction=0.5)
+        shape, loc, scale = dist.fit(ssd_df[chem_SMILEs], floc=0)
         
-        newx = pow(np.linspace(np.log10(0.01), np.log10(max(ssd_df['val'])), 1000), 10)
+        newx = pow(np.linspace(np.log10(0.01), np.log10(max(ssd_df[chem_SMILEs])), 1000), 10)
         
         average_fit = dist.cdf(newx, s=shape, loc=0, scale=scale)
         
-        if display:
-            # plot
-            fig, ax = plt.subplots()
-            if run_bootstrap:
-                this_boots = bootstrap()
-                boots_res = this_boots.run_boots(ssd_df, newx, shape, scale, dist=dist, times=bootstrap_time)
-                upper, lower = this_boots.get_upper_lower(boots_res, upper=97.5, lower=2.5)
-                for i in range(len(boots_res)):
-                    ax.plot(newx, boots_res[i], c='steelblue', alpha=0.2, zorder=0)
-                # plot the upper and lower CI
-                ax.plot(newx, upper,':', c='black')
-                ax.plot(newx, lower,':', c='black')
+        # plot
+        fig, ax = plt.subplots()
+        if run_bootstrap:
+            this_boots = bootstrap()
+            boots_res = this_boots.run_boots(ssd_df, chem_SMILEs, newx, shape, scale, dist=dist, times=bootstrap_time)
+            upper, lower = this_boots.get_upper_lower(boots_res, upper=97.5, lower=2.5)
+            for i in range(len(boots_res)):
+                ax.plot(newx, boots_res[i], c='steelblue', alpha=0.2, zorder=0)
+            # plot the upper and lower CI
+            ax.plot(newx, upper,':', c='black')
+            ax.plot(newx, lower,':', c='black')
             
-            #plot the average curve
-            ax.plot(newx, average_fit,color='red')
+        #plot the average curve
+        ax.plot(newx, average_fit,color='red')
             
-            #plot the points
-            ax.scatter(ssd_df['val'], frac, c='black', zorder=10)
+        #plot the points
+        ax.scatter(ssd_df[chem_SMILEs], frac, c='black', zorder=10)
             
-            # annotation
-            for i, txt in enumerate(ssd_df.index):
-                ax.annotate(txt, (ssd_df['val'].values[i], frac[i]))
+        # annotation
+        for i, txt in enumerate(ssd_df.index):
+            ax.annotate(txt, (ssd_df[chem_SMILEs].values[i], frac[i]))
  
-            # configeration
-            plt.xscale('log')
-            plt.xlim([min(ssd_df['val']) - min(ssd_df['val']*0.8), max(ssd_df['val']) + max(ssd_df['val'])*0.1])
-            plt.grid()
+        # configeration
+        plt.xscale('log')
+        plt.xlim(display_range)
+        plt.grid()
             
-            plt.show()
+        plt.show()
         
         return shape, loc, scale
             
     
-    def _frac(self, df, fraction=0.5):
-        df = df.sort_values(['val'])
-        frac = self._ppoints(df['val'], fraction)
+    def _frac(self, df, chem_SMILEs, fraction=0.5):
+        df = df.sort_values([chem_SMILEs])
+        frac = self._ppoints(df[chem_SMILEs], fraction)
         return df, frac
         
     def _ppoints(self, n, a):
@@ -89,18 +89,18 @@ class bootstrap():
     def __init__(self):
         pass
     
-    def run_boots(self, df, newx, shape, scale, dist=lognorm, times=1000):
+    def run_boots(self, df, chem_SMILEs,newx, shape, scale, dist=lognorm, times=1000):
         res = []
         for i in range(times):
-            this_boot = self._boots(df, newx, shape, scale, dist=dist)
+            this_boot = self._boots(df, chem_SMILEs,newx, shape, scale, dist=dist)
             res.append(this_boot)
         return np.asarray(res)
     
     def get_upper_lower(self, boots_res, upper=97.5, lower=2.5):
         return (np.percentile(boots_res, upper, axis=0), (np.percentile(boots_res, lower, axis=0)))
         
-    def _boots(self, df, newx, shape, scale, dist=lognorm):
-        xr = lognorm.rvs(size=len(df['val']), s=shape, loc=0, scale=scale)
+    def _boots(self, df, chem_SMILEs, newx, shape, scale, dist=lognorm):
+        xr = lognorm.rvs(size=len(df[chem_SMILEs]), s=shape, loc=0, scale=scale)
         this_shape, this_loc, this_scale = lognorm.fit(xr, floc=0)
         this_fit = dist.cdf(newx, s=this_shape, loc=0, scale=this_scale)
         

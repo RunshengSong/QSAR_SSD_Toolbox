@@ -12,6 +12,10 @@ QSAR_SSD_Toolbox/models/Americamysis bahia/filter.txt
 QSAR_SSD_Toolbox/models/Americamysis bahia/model.h5
 QSAR_SSD_Toolbox/models/Americamysis bahia/results.png
 QSAR_SSD_Toolbox/models/Americamysis bahia/scaler.pkl
+QSAR_SSD_Toolbox/models/Daphnia magna/filter.txt
+QSAR_SSD_Toolbox/models/Daphnia magna/model.h5
+QSAR_SSD_Toolbox/models/Daphnia magna/results.png
+QSAR_SSD_Toolbox/models/Daphnia magna/scaler.pkl
 QSAR_SSD_Toolbox/models/Lepomis Macrochirus/0714a_results.png
 QSAR_SSD_Toolbox/models/Lepomis Macrochirus/filter.txt
 QSAR_SSD_Toolbox/models/Lepomis Macrochirus/model.h5

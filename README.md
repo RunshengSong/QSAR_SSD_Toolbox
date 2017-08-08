@@ -97,3 +97,8 @@ R^2 on testing chemicals: 0.56 </br>
 R^2 on testing chemicals: 0.72 </br>
 ![](QSAR_SSD_Toolbox/models/Pimephales&#32;promelas/results.png?raw=true)
 </br>
+
+* Daphnia magna:
+R^2 on testing chemicals: 0.72 </br>
+![](QSAR_SSD_Toolbox/models/Daphnia&#32;magna/results.png?raw=true)
+</br>

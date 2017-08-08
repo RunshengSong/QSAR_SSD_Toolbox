@@ -6,12 +6,12 @@ Created on Jul 26, 2017
 import os
 import numpy as np
 import pandas as pd
+from collections import defaultdict
 
 from keras.models import load_model
 from sklearn.externals import joblib
 
 from descriptors import descriptor_calculator
-
 
 class qsar():
     def __init__(self, model_name):
@@ -24,7 +24,8 @@ class qsar():
         descriptors = self.scalar.transform(descriptor_calculator.calculate(SMILEs, self.filter))
         
         prediction = self.model.predict(descriptors)
-        return prediction
+        
+        return [x[0] for x in prediction]
 
     def _load_model(self, model_name):
         cur_path = os.path.dirname(__file__)
@@ -46,16 +47,16 @@ class run_all():
         cur_path = os.path.dirname(__file__)
         all_models = [d for d in os.listdir(cur_path+'/../models') if os.path.isdir(os.path.join(cur_path+'/../models', d))]
         species = []
-        all_p = []
-
+        all_p = defaultdict(list)
+ 
         for each_model in all_models:
-            
             species.append(each_model)
             this_qsar = qsar(each_model)
-            this_p = this_qsar.predict(SMILEs)[0]
-            all_p.append(this_p)
+            this_p = this_qsar.predict(SMILEs)
+            all_p[each_model] = list(this_p)
 
-        df = pd.DataFrame(np.array(all_p),index=species,columns=['val'])
+        df = pd.DataFrame.from_dict(all_p, orient='index')
+        df.columns = SMILEs
         return df
     
 if __name__ == '__main__':
