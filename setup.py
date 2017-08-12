@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 setup(
     name='QSAR_SSD_Toolbox',
-    version='0.13',
+    version='0.14',
     author="Runsheng Song",
     author_email="runsheng@umail.ucsb.edu",
     packages=find_packages(),
