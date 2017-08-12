@@ -19,22 +19,19 @@ Current toxicity endpoint is [LC50](http://www.businessdictionary.com/definition
 
 ## Install 
 
-* download the package
-```bash
-git clone https://github.com/RunshengSong/QSAR_SSD_Toolbox
-```
 * Install rdkit with conda first(save ur life):
 ```bash
 conda install -c rdkit rdkit=2017.03.1
 ```
 
-* Install other requirements (this will install packages like tensorflow and keras):
+* Install QSAR_SSD_Toolbox via pip:
+```bash
+pip install QSAR_SSD_Toolbox
+```
+
+* Install the requirments.txt if some packages are missing via 
 ```bash
 pip install -r requirements.txt
-```
-* Install QSAR_SSD_Toolbox with setup.py:
-```bash
-python setup.py install
 ```
 
 ## Basic Usage
@@ -99,6 +96,12 @@ R^2 on testing chemicals: 0.72 </br>
 </br>
 
 * Daphnia magna:
-R^2 on testing chemicals: 0.35 </br>
+R^2 on testing chemicals: 0.77 </br>
 ![](QSAR_SSD_Toolbox/models/Daphnia&#32;magna/results.png?raw=true)
+</br>
+
+* Other water fleas model:
+This model include the experimental data (LC50) of different kind of water fleas, except Daphnia magna
+R^2 on testing chemicals: 0.61 </br>
+![](QSAR_SSD_Toolbox/models/Other&#32;Water&#32;fleas/results.png?raw=true)
 </br>
