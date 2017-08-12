@@ -19,4 +19,4 @@ if __name__ == '__main__':
     from QSAR_SSD_Toolbox.src.ssd import ssd_generator
 
     this_ssd = ssd_generator()
-    this_ssd.generate(this_q, 'CO\N=C(C(=O)OC)\c1ccccc1CO\N=C(/C)c2cccc(c2)C(F)(F)F', dist=lognorm, run_bootstrap=False, bootstrap_time=100, display_range=[4,10])
+    this_ssd.generate(this_q, 'CO\N=C(C(=O)OC)\c1ccccc1CO\N=C(/C)c2cccc(c2)C(F)(F)F', dist=lognorm, run_bootstrap=True, bootstrap_time=50, display_range=[4,10])

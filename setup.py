@@ -10,4 +10,5 @@ setup(
     license='Creative Commons Attribution-Noncommercial-Share Alike license',
     include_package_data=True,
     python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4',
+    install_requires=['scikit-learn==0.18.1','Keras==2.0.6','h5py==2.7.0','tensorflow==1.1.0'],
 )

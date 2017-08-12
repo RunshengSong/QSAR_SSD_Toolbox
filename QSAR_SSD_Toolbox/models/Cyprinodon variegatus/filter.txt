@@ -1,0 +1,15 @@
+ETA_eta
+SLogP
+SpAbs_D
+SM1_Dzm
+ATS1m
+ATSC2m
+ATSC4dv
+SRW05
+Xpc-4d
+Xpc-4dv
+Xp-4dv
+MID_N
+GGI1
+PEOE_VSA3
+SMR_VSA4

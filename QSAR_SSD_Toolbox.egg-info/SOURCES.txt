@@ -5,6 +5,7 @@ QSAR_SSD_Toolbox/__init__.py
 QSAR_SSD_Toolbox.egg-info/PKG-INFO
 QSAR_SSD_Toolbox.egg-info/SOURCES.txt
 QSAR_SSD_Toolbox.egg-info/dependency_links.txt
+QSAR_SSD_Toolbox.egg-info/requires.txt
 QSAR_SSD_Toolbox.egg-info/top_level.txt
 QSAR_SSD_Toolbox/models/__init__.py
 QSAR_SSD_Toolbox/models/__init__.pyc
@@ -12,6 +13,10 @@ QSAR_SSD_Toolbox/models/Americamysis bahia/filter.txt
 QSAR_SSD_Toolbox/models/Americamysis bahia/model.h5
 QSAR_SSD_Toolbox/models/Americamysis bahia/results.png
 QSAR_SSD_Toolbox/models/Americamysis bahia/scaler.pkl
+QSAR_SSD_Toolbox/models/Cyprinodon variegatus/filter.txt
+QSAR_SSD_Toolbox/models/Cyprinodon variegatus/model.h5
+QSAR_SSD_Toolbox/models/Cyprinodon variegatus/results.png
+QSAR_SSD_Toolbox/models/Cyprinodon variegatus/scaler.pkl
 QSAR_SSD_Toolbox/models/Daphnia magna/filter.txt
 QSAR_SSD_Toolbox/models/Daphnia magna/model.h5
 QSAR_SSD_Toolbox/models/Daphnia magna/results.png
@@ -28,6 +33,10 @@ QSAR_SSD_Toolbox/models/Oryzias latipes/filter.txt
 QSAR_SSD_Toolbox/models/Oryzias latipes/model.h5
 QSAR_SSD_Toolbox/models/Oryzias latipes/results.png
 QSAR_SSD_Toolbox/models/Oryzias latipes/scaler.pkl
+QSAR_SSD_Toolbox/models/Other Water fleas/filter.txt
+QSAR_SSD_Toolbox/models/Other Water fleas/model.h5
+QSAR_SSD_Toolbox/models/Other Water fleas/results.png
+QSAR_SSD_Toolbox/models/Other Water fleas/scaler.pkl
 QSAR_SSD_Toolbox/models/Pimephales promelas/filter.txt
 QSAR_SSD_Toolbox/models/Pimephales promelas/model.h5
 QSAR_SSD_Toolbox/models/Pimephales promelas/results.png

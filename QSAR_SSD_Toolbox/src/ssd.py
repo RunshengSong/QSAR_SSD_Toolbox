@@ -57,7 +57,7 @@ class ssd_generator():
         # annotation
         for i, txt in enumerate(ssd_df.index):
             ax.annotate(txt, (ssd_df[chem_SMILEs].values[i], frac[i]))
- 
+            
         # configeration
         plt.xscale('log')
         plt.xlim(display_range)
