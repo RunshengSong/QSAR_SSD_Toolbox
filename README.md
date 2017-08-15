@@ -39,7 +39,7 @@ pip install -r requirements.txt
 ```python
 from QSAR_SSD_Toolbox.src.qsar import qsar
 
-SMILEs = ['CCCC'] # The input SMILEs must be a list
+SMILEs = 'CCCC' # The input SMILEs 
 
 this_q = qsar("Lepomis Macrochirus") # the name of the species, see below for avaliable species
 print this_q.predict(SMILEs) # return a list of predicted LC50 values for the given species
@@ -51,7 +51,7 @@ from QSAR_SSD_Toolbox.src.qsar import run_all
 
 SMILEs = ['CCCC'] # The input SMILEs must be a list
 
-this_q = run_all.run(SMILEs) # return a pandas dataframe: index -- species name | 'val' -- LC50 values for the input chemicals on corrosponding species. 
+this_q = run_all.run(SMILEs) # return a pandas dataframe for the input chemicals on corrosponding species. 
 ```
 
 ### Plot SSD Curves

@@ -42,7 +42,7 @@ class ssd_generator():
         fit_upper = dist.cdf(newx, s=shape_upper, loc=0, scale=scale_upper)
         
         # plot
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(11,10))
         if run_bootstrap:
             this_boots = bootstrap()
             boots_res = this_boots.run_boots(df_mean, newx, shape_mean, scale_mean, dist=dist, times=bootstrap_time)
@@ -71,10 +71,10 @@ class ssd_generator():
             ax.annotate(txt, (df_mean['Prediction'].values[i], frac_mean[i]))
         if run_error:
             for i, txt in enumerate(df_low.index):
-                ax.annotate(txt, (df_low['Prediction Lower'].values[i], frac_low[i]), size='small',color='gray')
+                ax.annotate(txt, (df_low['Prediction Lower'].values[i]-0.15, frac_low[i]), size='small',color='gray')
                 
             for i, txt in enumerate(df_high.index):    
-                ax.annotate(txt, (df_high['Prediction Upper'].values[i], frac_high[i]), size='small',color='gray')
+                ax.annotate(txt, (df_high['Prediction Upper'].values[i], frac_high[i]-0.03), size='small',color='gray')
             
         # configeration
         plt.xscale('log')
@@ -85,7 +85,7 @@ class ssd_generator():
         plt.legend(loc='upper left')
             
         plt.show()
-        return df_mean, df_high, df_low
+        return df_mean, df_high, df_low, fig
             
     def _frac(self, df, fraction=0.5):
         df_mean = df.sort_values(['Prediction'])

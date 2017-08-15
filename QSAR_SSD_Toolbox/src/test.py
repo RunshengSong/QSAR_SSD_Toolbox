@@ -20,7 +20,8 @@ if __name__ == '__main__':
 
     this_ssd = ssd_generator()
     df_mean, df_high, df_low = this_ssd.generate(this_q, dist=lognorm, run_error=True,run_bootstrap=False, bootstrap_time=500, display_range=[2,8])
-    
+
     print df_mean
     print df_high
     print df_low
+    
