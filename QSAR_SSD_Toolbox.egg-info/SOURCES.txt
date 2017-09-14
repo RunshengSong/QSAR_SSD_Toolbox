@@ -2,6 +2,7 @@ MANIFEST.in
 setup.cfg
 setup.py
 QSAR_SSD_Toolbox/__init__.py
+QSAR_SSD_Toolbox/test.py
 QSAR_SSD_Toolbox.egg-info/PKG-INFO
 QSAR_SSD_Toolbox.egg-info/SOURCES.txt
 QSAR_SSD_Toolbox.egg-info/dependency_links.txt
@@ -55,4 +56,3 @@ QSAR_SSD_Toolbox/src/__init__.py
 QSAR_SSD_Toolbox/src/descriptors.py
 QSAR_SSD_Toolbox/src/qsar.py
 QSAR_SSD_Toolbox/src/ssd.py
-QSAR_SSD_Toolbox/src/test.py
