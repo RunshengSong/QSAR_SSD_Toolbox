@@ -10,13 +10,13 @@ from scipy.stats import lognorm
 from src.qsar import *
 
 if __name__ == '__main__':
-    SMILEs = 'CNC(=O)O\N=C(/C)SC' # The input SMILEs must be a list
+    SMILEs = 'CO[P](=S)(Oc1cc(Cl)c(Br)cc1Cl)c2ccccc2' # The input SMILEs must be a list
 
-#     this_q = qsar("Lepomis Macrochirus")
+    this_q = qsar("Americamysis bahia")
 #     print this_q.predict(SMILEs)
-    this_q = run_all.run(SMILEs)
+#     this_q = run_all.run(SMILEs)
 #     
-    print this_q
+    print this_q.predict(SMILEs)
     
 #     from QSAR_SSD_Toolbox.src.ssd import ssd_generator
 
