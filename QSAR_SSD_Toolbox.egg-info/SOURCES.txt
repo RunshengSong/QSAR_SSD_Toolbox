@@ -1,5 +1,5 @@
 MANIFEST.in
-setup.cfg
+README.md
 setup.py
 QSAR_SSD_Toolbox/__init__.py
 QSAR_SSD_Toolbox/test.py
