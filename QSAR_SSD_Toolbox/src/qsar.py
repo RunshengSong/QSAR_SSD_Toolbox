@@ -73,14 +73,15 @@ class qsar():
     
 class run_all():
     @staticmethod
-    def run(SMILEs):
+    def run(SMILEs, verbose=True):
         cur_path = os.path.dirname(__file__)
         all_models = [d for d in os.listdir(cur_path+'/../models') if os.path.isdir(os.path.join(cur_path+'/../models', d))]
         species = []
         all_p = defaultdict(list)
  
         for each_model in all_models:
-            print each_model
+            if verbose:
+                print each_model
             species.append(each_model)
             this_qsar = qsar(each_model)
             this_p, this_inside, this_error, this_higher, this_lower = this_qsar.predict(SMILEs)
