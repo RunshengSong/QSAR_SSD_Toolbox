@@ -30,7 +30,8 @@ class qsar():
         
         descriptors = self.scalar.transform(descriptor_calculator.calculate(SMILEs, self.filter))
         inside_ad, error_bars = self._calculate_ad(descriptors, self.ad_dict)
-        prediction = self.model.predict(descriptors)
+        prediction = self.model.predict(descriptors) # in -log10(mol/L)
+        prediction = self._unit_convertor(prediction) # in umol/L
         prediction_higher, prediction_lower = self._get_range(prediction[0], error_bars[0])
         
         return prediction[0][0], inside_ad[0], error_bars[0], prediction_higher[0], prediction_lower[0]
@@ -47,6 +48,13 @@ class qsar():
         
         return inside_ad, error_bars
     
+    def _unit_convertor(self, raw_pred):
+        '''
+        convert -log10(mol/L) to umol/L
+        '''
+        return [np.power(10, -raw_pred[0])*1e6]
+        
+        
     def _get_range(self, prediction, error_bars):
         return prediction + prediction*error_bars, prediction - prediction*error_bars
     

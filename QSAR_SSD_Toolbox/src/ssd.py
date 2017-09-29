@@ -80,7 +80,7 @@ class ssd_generator():
         plt.xscale('log')
         plt.xlim(display_range)
         plt.grid()
-        plt.xlabel('Concentration (mol/L)')
+        plt.xlabel('Concentration (umol/L), in Log Scale')
         plt.ylabel('Cumulative Probability')
         plt.legend(loc='upper left')
             
