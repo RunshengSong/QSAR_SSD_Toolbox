@@ -12,12 +12,10 @@ from scipy.stats import lognorm
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 
-
-
 class ssd_generator():
     def __init__(self):
         pass
-    
+       
     def generate(self, 
                  ssd_df,
                  dist=lognorm, 
@@ -132,8 +130,6 @@ class bootstrap():
         
         return list(this_fit)
     
-    
-        
 if __name__ == '__main__':
     # test
     import io

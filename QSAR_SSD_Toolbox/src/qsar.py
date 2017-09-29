@@ -14,6 +14,7 @@ from keras.models import load_model
 from sklearn.externals import joblib
 
 from descriptors import descriptor_calculator
+from docutils.io import InputError
 
 class qsar():
     def __init__(self, model_name):
@@ -23,18 +24,18 @@ class qsar():
         self.ad_dict = self._load_ad(model_name)
      
     def predict(self, SMILEs):
-        SMILEs = [SMILEs] # temp solution...
-        
-        if len(SMILEs) > 1:
-            raise ValueError("Only accept sinlge SMILEs") 
+#         SMILEs = [SMILEs] # temp solution...
+#         
+#         if len(SMILEs) > 1:
+#             raise ValueError("Only accept single SMILEs") 
         
         descriptors = self.scalar.transform(descriptor_calculator.calculate(SMILEs, self.filter))
         inside_ad, error_bars = self._calculate_ad(descriptors, self.ad_dict)
         prediction = self.model.predict(descriptors) # in -log10(mol/L)
         prediction = self._unit_convertor(prediction) # in umol/L
         prediction_higher, prediction_lower = self._get_range(prediction[0], error_bars[0])
-        
-        return prediction[0][0], inside_ad[0], error_bars[0], prediction_higher[0], prediction_lower[0]
+        return prediction, inside_ad, error_bars, prediction_higher, prediction_lower
+#         return prediction[0][0], inside_ad[0], error_bars[0], prediction_higher[0], prediction_lower[0]
     
     def _calculate_ad(self, descriptors, ad_dict):
         cut_off_threshold = ad_dict['cut off']
@@ -52,8 +53,7 @@ class qsar():
         '''
         convert -log10(mol/L) to umol/L
         '''
-        return [np.power(10, -raw_pred[0])*1e6]
-        
+        return np.array(map(lambda x: np.power(10, -x)*1e6, raw_pred))
         
     def _get_range(self, prediction, error_bars):
         return prediction + prediction*error_bars, prediction - prediction*error_bars
@@ -80,25 +80,33 @@ class qsar():
         return ad_dict
     
 class run_all():
+    '''
+    run all functions for all species and/or for all chemicals
+    '''
     @staticmethod
-    def run(SMILEs, verbose=True):
+    def run_all_species(SMILEs):
+        '''
+        function to run all species for a SIGNLE chemical
+        '''
+        if len(SMILEs)>1:
+            raise InputError("Only Accept One SMILEs at a Time")
+        
         cur_path = os.path.dirname(__file__)
         all_models = [d for d in os.listdir(cur_path+'/../models') if os.path.isdir(os.path.join(cur_path+'/../models', d))]
         species = []
         all_p = defaultdict(list)
  
         for each_model in all_models:
-            if verbose:
-                print each_model
             species.append(each_model)
             this_qsar = qsar(each_model)
             this_p, this_inside, this_error, this_higher, this_lower = this_qsar.predict(SMILEs)
-            all_p[each_model] = [this_p, this_inside, this_error, this_higher, this_lower]
+            all_p[each_model] = [this_p[0][0], this_inside[0], this_error[0], this_higher[0], this_lower[0]]
 
         df = pd.DataFrame.from_dict(all_p, orient='index')
         df.columns = ['Prediction', 'Inside AD', 'Prediction Error', 'Prediction Upper', 'Prediction Lower']
         return df
-    
+                        
+        
 if __name__ == '__main__':
     pass
 #     # test
